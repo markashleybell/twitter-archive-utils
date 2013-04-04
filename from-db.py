@@ -27,13 +27,13 @@ def output_text(tweets):
     for item in tweets:
         id, created_at, text = item
         # text_output += str(id)+'\n'+created_at.strftime("%b %d %Y %H:%M")+'\n'+text+'\n\n'
-        text_output += created_at.strftime("%b %d %Y %H:%M") +'\n' + text + '\n\n'
+        text_output += created_at.strftime("%b %d %Y %H:%M") + ': ' + text + '\n'
     f = open('tweets.txt', "w")
     f.write(text_output.encode('utf-8'))
     f.close()
 
 # l = load_from_db()
-l = load_from_db("WHERE status NOT LIKE '@%' AND status NOT LIKE 'RT%' AND status NOT LIKE '%http://%'")
+l = load_from_db("WHERE status NOT LIKE '@%' AND status NOT LIKE 'RT @%' AND status NOT LIKE '%http://%'")
 # l = load_from_db("WHERE status LIKE '%rule of%'")
 output_text(l)
 print 'Export Complete'
