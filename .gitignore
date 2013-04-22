@@ -1,4 +1,5 @@
 *.sublime-workspace
 tweets
 tweets.txt
+tweets-sorted.txt
 config.cfg
